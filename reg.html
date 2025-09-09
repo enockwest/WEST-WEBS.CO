@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Website Sign-up Form | West Website Co.</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+       background: url('a1.jpg') no-repeat center center fixed;
+       background-size: cover;
+      color: #ffffff;
+      font-size: large;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  
+
+
+    /* ===== STICKY HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #0ff, #00f);
+      color: #000;
+      padding: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+      text-shadow: 0 0 5px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* ===== FORM ===== */
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 700px;
+      margin: 30px auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1s ease;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    /* ===== SUBMIT BUTTON ===== */
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0ff, #00f);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 255, 255, 0.6);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer a {
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== WHATSAPP FLOAT BTN ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: transform 0.2s;
+      z-index: 1001;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== ANIMATION ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    🌐 West Website Co.
+  </header>
+
+  <!-- Form -->
+  <div class="form-container">
+    <h2>Client Website Sign-up Form</h2>
+    <form id="clientForm" action="//formspree.io/f/manjwjgv" method="post">
+      <label>Client's Full Name</label>
+      <input type="text" placeholder="e.g. John Doe" required>
+
+      <label>Business Name (Brand)</label>
+      <input type="text" placeholder="e.g. West Webs Co." required>
+
+      <label>Services Offered</label>
+      <textarea placeholder="e.g. Wifi, Parking ETC"></textarea>
+
+      <label>Products Offered</label>
+      <textarea placeholder="e.g. Curtains, Stationery, Coffee"></textarea>
+
+      <label>Working Days</label>
+      <input type="text" placeholder="e.g. Monday - Friday">
+
+      <label>Time In</label>
+      <input type="time">
+
+      <label>Time Out</label>
+      <input type="time">
+
+      <label>Business Email(s)</label>
+      <input type="email" placeholder="e.g. info@business.com" multiple>
+
+      <label>Business Phone(s)</label>
+      <input type="tel" placeholder="e.g. +256700000000">
+
+      <label>WhatsApp Number(s)</label>
+      <input type="tel" placeholder="e.g. +256700000000">
+
+      <label>Address (Work location)</label>
+      <input type="text" placeholder="e.g. Kampala, Uganda">
+
+      <label>Google Maps Location Link</label>
+      <P>"Open Google Maps and click the blue dot icon or "Your location" button (usually near the bottom-right corner) to instantly get your current location then scroll down and lookup the button <button class="btn btn-pill">copy code</button> and then paste it in this field"</P>
+      <input type="url" placeholder="Paste Google Maps link here">
+
+      <label>Facebook Link</label>
+      <input type="url" placeholder="https://facebook.com/yourpage">
+
+      <label>Twitter Link</label>
+      <input type="url" placeholder="https://twitter.com/yourhandle">
+
+      <label>YouTube Link</label>
+      <input type="url" placeholder="https://youtube.com/channel/xyz">
+
+      <label>Instagram Link</label>
+      <input type="url" placeholder="https://instagram.com/yourhandle">
+
+      <label>TikTok Link</label>
+      <input type="url" placeholder="https://tiktok.com/@yourhandle">
+
+      <label>Additional Notes & Requests</label>
+      <textarea placeholder="Any special requests or notes..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 West Website Co. | Built by <a href="#">Developer West</a> | 📞 +256 700 531 200
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/256700531200" class="whatsapp-float" target="_blank">💬</a>
+
+  <script>
+    document.getElementById("clientForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("✅ Thank you! Your details have been submitted. We’ll reach you via Email or WhatsApp.");
+    });
+  </script>
+
+</body>
+</html>

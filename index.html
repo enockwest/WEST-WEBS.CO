@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>West Webs.Co</title>
+  <meta name="description" content="West Webs.Co — Professional web development & design. Developer West — agency portfolio." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1720;
+      --muted:#9aa4b2;
+      --accent:#00e6a8;
+      --accent-2:#6b9dff;
+      --glass: rgb(2, 1, 1, 0.09);
+      --glass-2: linear-gradient(rgba(0, 0, 0,0.7), rgba(0, 0, 0, 0.7)), url('a4.jpg');
+      --radius:18px;
+      --maxw:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;max-width:100%;overflow-x:hidden;}
+    body{
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(107,157,255,0.03), transparent),
+                  radial-gradient(900px 600px at 90% 90%, rgba(0,230,168,0.02), transparent),
+                  var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased; 
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:40px 24px}
+
+    /* Header */
+    header{position:fixed;top:0;left:0;right:0;z-index:1200;backdrop-filter: blur(6px);}
+    .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;
+      color:#041018;font-family:JetBrains Mono;font-size:18px;
+      box-shadow:0 6px 30px rgba(0,0,0,0.7);
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.6px}
+
+    .slider {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 12px;
+      background: #fff;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .slide-track {
+      display: flex;
+      animation: scroll 20s linear infinite;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 200px;
+      margin: 0 10px;
+      background: #fff;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card p {
+      margin: 12px 0;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    @keyframes scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+    nav li{font-weight:600;color:var(--muted);font-size:14px}
+    nav li a{padding:8px 12px;border-radius:10px}
+    nav li a:hover{color:var(--accent);background:var(--glass)}
+
+    /* Hero */
+    .hero{display:flex;flex-wrap:wrap;gap:36px;padding-top:90px}
+    .hero-left,.hero-right{flex:1 1 300px;min-width:0}
+    .eyebrow{display:inline-block;padding:6px 12px;background:linear-gradient(90deg, rgba(107,157,255,0.06), rgba(0,230,168,0.03));border-radius:999px;color:var(--muted);font-weight:600;margin-bottom:18px}
+    .hero h2{font-size:44px;line-height:1.02;margin:0 0 16px}
+    .hero p{color:var(--muted);max-width:70%;font-size:16px;margin:0 0 22px}
+    .cta-row{display:flex;gap:14px;align-items:center}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041018;box-shadow:0 8px 30px rgba(107,157,255,0.06);}
+    .btn-ghost{color:var(--accent);border:1px dashed rgba(0,230,168,0.12);}
+
+    /* 3D card */
+    .card-3d{background:linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.009));border-radius:16px;padding:20px;box-shadow: 0 12px 40px rgba(2,6,23,0.6);transition:transform .35s, box-shadow .35s;}
+    .card-3d:hover{transform:translateY(-14px) rotateX(8deg) rotateY(6deg);box-shadow:0 30px 80px rgba(2,6,23,0.9)}
+
+    .hero-right{display:flex;flex-direction:column;gap:18px;align-items:stretch}
+    .stats{display:flex;gap:12px}
+    .stat{flex:1;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));border:1px solid rgba(255,255,255,0.02)}
+    .stat h3{margin:0;font-size:18px}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* Sections */
+    section{padding:90px 0}
+    .section-head{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+    .section-head h3{margin:0;font-size:20px}
+    .section-sub{color:var(--muted);font-size:14px}
+
+    /* Services */
+    .services-grid{display:flex;flex-wrap:wrap;gap:18px}
+    .service{flex:1 1 240px;min-width:0;padding:20px;border-radius:16px;min-height:160px;transition:transform .35s, box-shadow .35s}
+    .service:hover{transform:translateY(-12px) rotateX(6deg);box-shadow:0 22px 50px rgba(2,6,23,0.6)}
+    .service h4{margin:0 0 8px}
+    .service p{color:var(--muted);margin:0}
+
+    /* Portfolio */
+    .portfolio-grid{display:flex;flex-wrap:wrap;gap:18px}
+    .project{flex:1 1 280px;min-width:0;position:relative;border-radius:14px;overflow:hidden;min-height:200px;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .4s, box-shadow .4s}
+    .project::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(2,6,23,0.6));opacity:0;transition:opacity .25s}
+    .project:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 30px 80px rgba(2,6,23,0.7)}
+    .project:hover::after{opacity:1}
+    .project .meta{position:absolute;left:16px;bottom:16px}
+    .project .meta h5{margin:0}
+    .project .meta p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    /* Contact */
+    .contact-grid{display:flex;flex-wrap:wrap;gap:18px}
+    .contact-card{flex:1 1 340px;min-width:0;padding:20px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));border:1px solid rgba(255,255,255,0.02)}
+    label{display:block;margin:8px 0 6px;font-size:13px;color:var(--muted)}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;font-size:14px}
+    textarea{min-height:140px}
+
+    .footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      font-size: 26px;
+      text-decoration: none;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      z-index: 2000;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero p{max-width:100%}
+      nav ul{display:none}
+    }
+    @media (max-width:560px){
+      .hero h2{font-size:28px}
+      .logo{width:36px;height:36px;font-size:14px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">W</div>
+        <div>
+          <h1 style="margin:0">West Webs.Co</h1>
+          <div style="font-size:12px;color:var(--muted)">Website Development Agency</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <span class="eyebrow">Premium web design & growth</span>
+        <h2>West Webs.Co — <span style="color:var(--accent)">Build. Launch. Scale.</span></h2>
+        <p>We craft professional, conversion-focused websites for businesses and talents. Modern UI, performance-first, and built to convert customers.</p>
+
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+          <button class="btn btn-ghost" id="subscribeBtn">Monthly Subscription</button>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="card-3d stats">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <h3>Selected Work</h3>
+              <p style="color:var(--muted)">Websites · Brands · E-commerce</p>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:22px">50+</div>
+              <div style="font-size:12px;color:var(--muted)">Projects Delivered</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-head">
+        <h3>Services</h3>
+      </div>
+      <div class="services-grid">
+        <div class="service card-3d">
+          <h4>Websites</h4>
+          <p>Create fast, responsive business websites — brochure, e-commerce, or booking platforms.</p>
+        </div>
+        <div class="service card-3d">
+          <h4>SEO & Growth</h4>
+          <p>On-page SEO, technical fixes, and advisory to help you rank and convert.</p>
+        </div>
+         <div class="service card-4d">
+          <h4>Free Services</h4>
+          <ul>
+            <li> QR Code Generation</li>
+            <li>Google Map Infomation Checkin.</li>
+            <li>Website maintainance and Update</li>
+            <li>7days Delivery Time - after submitting in your Website Registration Form form</li>
+            
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+   
+     <section id="team-slider">
+    <h2>Our Featured Webs</h2>
+    <div class="slider">
+      <div class="slide-track">
+        <!-- 5 cards -->
+        <a href="https://enockwest.github.io/gym25/" class="card">
+          <img src="a5.jpg" alt="Image 1">
+          <p>Gym Websites</p>
+        </a>
+        <a href="https://enockwest.github.io/rest3/" class="card">
+          <img src="a6.jpg" alt="Image 2">
+          <p>Restaurant Websites</p>
+        </a>
+        <a href="https://enockwest.github.io/Dproprinterandstationery/" class="card">
+          <img src="a62bf63bd827021b6d3e90875b9ac5eb.jpg" alt="Image 3">
+          <p>Stationery Websites</p>
+        </a>
+        <a href="" class="card">
+          <img src="a1.jpg" alt="Image 4">
+          <p>GuestHouse Websites</p>
+        </a>
+        <a href="https://enockwest.github.io/bakery/" class="card">
+          <img src="a4.jpg" alt="Image 5">
+          <p>Bakery Websites</p>
+        </a>
+
+        <!-- duplicate for infinite loop -->
+         <!--
+        <a href="" class="card">
+          <img src="" alt="Image 1">
+          <p>Image 1</p>
+        </a>
+        <a href="" class="card">
+          <img src="" alt="Image 2">
+          <p>Image 2</p>
+        </a>
+        <a href="" class="card">
+          <img src="" alt="Image 3">
+          <p>Image 3</p>
+        </a>
+        <a href="" class="card">
+          <img src="" alt="Image 4">
+          <p>Image 4</p>
+        </a>
+        <a href="" class="card">
+          <img src="" alt="Image 5">
+          <p>Image 5</p>
+        </a>
+      </div>
+    -->
+    </div>
+  </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <h3>Contact</h3>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card card-3d">
+          <form id="contactForm" action="https://formspree.io/f/manjwjgv" method="post">
+            <label for="name">Full name</label>
+            <input id="name" name="name" required placeholder="Your name" />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project"></textarea>
+
+            <div style="display:flex;gap:12px;margin-top:12px">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <a href="reg.html" class="btn btn-lg btn-primary">REGISTER NOW</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>© <strong>West Webs.Co</strong> </div>
+      <div style="color:var(--muted)">Built with care · pythonpro2005@gmail.com</div>
+    </footer>
+
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/256700531200" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    💬
+  </a>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:1500">
+    <div class="modal card-3d" style="max-width:640px;padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3>Monthly Subscription</h3>
+        <button class="btn" onclick="closeModal()">Close</button>
+      </div>
+      <p style="margin-top:14px;color:var(--muted)">Use these bank details to set up a standing order:</p>
+      <pre style="background:var(--glass-2);padding:14px;border-radius:10px;font-size:14px; box-shadow: 3px 3px 3px cyan;">
+Account name: NSUBUGA ENOCK
+Bank: CENTENARY BANK
+Account number: 3205085648
+SWIFT: CERBUGKAXXX
+Amount: 20000 UGX / month
+Reference: WhatsApp Screenshot</pre>
+      <div style="margin-top:14px;display:flex;gap:10px;justify-content:flex-end">
+        <button class="btn" onclick="copyBank()">Copy bank details</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal handling
+    const modal = document.getElementById('modalBackdrop');
+    document.getElementById('subscribeBtn').addEventListener('click',()=>{ modal.style.display='flex';document.body.style.overflow='hidden'; });
+    function closeModal(){ modal.style.display='none';document.body.style.overflow='auto'; }
+
+    // Copy bank details
+    function copyBank(){
+      const text = `Account name: NSUBUGA ENOCK
+Bank: CENTENARY BANK
+Account number: 3205085648
+SWIFT: CERBUGKAXXX
+Amount: 20000 UGX / month
+Reference: WhatsApp Screenshot`;
+      navigator.clipboard?.writeText(text).then(()=>alert('Bank details copied to clipboard!'));
+    }
+
+    // Demo placeholder
+    function openDemo(title,link){ alert(title+' would open at '+link); }
+  </script>
+</body>
+</html>
